@@ -53,6 +53,7 @@ import org.springframework.security.config.annotation.web.configurers.SecurityCo
 import org.springframework.security.config.annotation.web.configurers.ServletApiConfigurer;
 import org.springframework.security.config.annotation.web.configurers.SessionManagementConfigurer;
 import org.springframework.security.config.annotation.web.configurers.X509Configurer;
+import org.springframework.security.config.annotation.web.configurers.cas.CasLoginConfigurer;
 import org.springframework.security.config.annotation.web.configurers.openid.OpenIDLoginConfigurer;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
@@ -906,6 +907,16 @@ public final class HttpSecurity extends
 	 */
 	public HttpBasicConfigurer<HttpSecurity> httpBasic() throws Exception {
 		return getOrApply(new HttpBasicConfigurer<HttpSecurity>());
+	}
+
+	/**
+	 * Configures CAS authentication.
+	 *
+	 * @return the {@link CasLoginConfigurer} for further customizations
+	 * @throws Exception
+	 */
+	public CasLoginConfigurer<HttpSecurity> casLogin() throws Exception {
+		return getOrApply(new CasLoginConfigurer<HttpSecurity>());
 	}
 
 	@Override
